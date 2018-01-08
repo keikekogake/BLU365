@@ -69,5 +69,9 @@ Versão | Data | Comentário
 
   2. O gatilho que inicia a automação é o **Verificação diária**, todo dia, em um horário pre definido, o gatilho verifica se o contato atende os critérios configurados, conforme o print abaixo:
 
-  ###### Exemplo de importação do arquivo
+  ###### Exemplo de configuração do gatilho
   ![authorization](img-auto-prev/conf_verif_diaria.png)
+
+  3. Após a configuração do gatilho, é configurada a ação que do gatilho dispara (envio de e-mail ou SMS), conforme print abaixo:
+  
+  ![authorization](img-auto-prev/acao_gatilho.png)
