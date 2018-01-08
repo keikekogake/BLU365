@@ -43,12 +43,14 @@ Existe uma pasta no SFTP com os arquivos que serão importados:
  ###### Estrutura das pastas
  ![authorization](img-auto-prev/pastas-sftp.png)
 
-### Criando o authorizer na AWS
+### Importações criadas
+  1. Todas as importações de preventivo tem o padrão de nome (dinamize_preventivo_**hora-da-importacao**.csv);
+  2. Os arquivos são gerados de hora em hora;
+  3. Os arquivos são importados de hora em hora.
+ 
 
- Todas as lambdas que utilizarão o sistema anti-fraude, antes de serem invocadas pelo api gateway devem passar pelo gondul_authorizer, que vai validar a requisição e se estiver correta permite que o api gateway invoque a lambda normalmente.
-
- ###### Exemplo de onde ele é aplicado
- ![authorization](.img-auto-prev/authorization_midware_lambda.png)
+ ###### Exemplo de importação do arquivo
+ ![authorization](img-auto-prev/import-prev.png)
 
  ### Lambda Gondul_authorizer
 
