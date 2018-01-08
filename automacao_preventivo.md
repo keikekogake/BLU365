@@ -52,15 +52,13 @@ Existe uma pasta no SFTP com os arquivos que serão importados:
  ###### Exemplo de importação do arquivo
  ![authorization](img-auto-prev/import-prev.png)
 
- ### Lambda Gondul_authorizer
+ ### Segmentação de contatos
 
- Ela é responsável por descriptografar o token recebido, pegar as informações de IP, Email, fingerprint e começar a válidar.
- Ele segue uma ordem de validação.
-  1. Checa se o **ip** consta na WhiteList, se constar pula todos os próximos passos e libera o acesso.
-  2. Chega se o **domain** consta na WhiteList, se constar pula todos os próximos passos e libera o acesso.
-  3. Checa se o **fingerprint** consta na BlackList, se não constar vai para a próxima validação.
-  4. Checa se o **ip** consta na BlackList, se não constar vai para a próxima validação.
-  5. Checa se o **email** consta na BlackList, se não constar vai para a próxima validação.
+ As segmentações foram criadas para separar os contatos por **credor, portfolio e dias para vencimento do boleto**.
+  * **CREDOR - Preventivo D-5** segmenta os contatos que estão com o **marcador** = Preventivo, **qtd_dias_vencimento** = -5 e **data_negociacao** <= ontem.
+  * **CREDOR - Preventivo D-3** segmenta os contatos que estão com o **marcador** = Preventivo, **qtd_dias_vencimento** = -3 e **data_negociacao** <= ontem.
+  * **CREDOR - Preventivo D-1** segmenta os contatos que estão com o **marcador** = Preventivo, **qtd_dias_vencimento** = -1 e **data_negociacao** <= ontem.
+  * **CREDOR - Preventivo D0** segmenta os contatos que estão com o **marcador** = Preventivo, **data_prox_venc** = hoje e **data_negociacao** <= ontem.
 
 Vale lembrar que a WhiteList são os cadastros de ip e domain, efetuado pela equipe de ti, que podem fazer requisições sem restrição, como é exemplo dos testes da BLU365 e parceiros, já a BlackList são todos aqueles que não podem prosseguir no processo de geração de acordo.
 
