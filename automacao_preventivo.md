@@ -41,7 +41,7 @@ A ferramenta busca os arquivos sempre na mesma pasta, com o nome padrão e com h
 Existe uma pasta no SFTP com os arquivos que serão importados:
 
  ###### Estrutura das pastas
- ![authorization](.img-auto-prev/pastas-sftp.png)
+ ![authorization](img-auto-prev/pastas-sftp.png)
 
 ### Criando o authorizer na AWS
 
