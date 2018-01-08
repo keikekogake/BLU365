@@ -75,3 +75,9 @@ Versão | Data | Comentário
   3. Após a configuração do gatilho, é configurada a ação que do gatilho dispara (envio de e-mail ou SMS), conforme print abaixo:
   
   ![authorization](img-auto-prev/acao_gatilho.png)
+
+
+
+
+
+## The end.
