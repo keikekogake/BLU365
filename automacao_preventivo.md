@@ -1,6 +1,6 @@
 [Voltar a home](../../readme.md)
 ___
-<img src=".imgantifraude/logoblu365.png" alt="Logo BLU365" title="BLU365" align="right" height="60"/>
+<img src="img-auto-prev/logoblu365.png" alt="Logo BLU365" title="BLU365" align="right" height="60"/>
 
 Automação Preventivo
 ======
