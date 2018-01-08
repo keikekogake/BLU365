@@ -15,7 +15,7 @@ Versão | Data | Comentário
   1. [Histórico do documento](#1-histórico-do-documento)
   2. [Sumário](#2-sumário)
   3. [Visão geral](#3-visão-geral)
-  4. [Como funciona a automação do Preventivo](#4-como-funciona-a-automacao-do-preventivo)
+  4. [Como funciona a automação do Preventivo](#4-como-funciona-a-automação-do-preventivo)
 
 ## 3 Visão geral
 
