@@ -63,8 +63,8 @@ Versão | Data | Comentário
 
   1. As automações foram criadas separadas para cada **credor + portfólio** com o nome **CREDOR PORTFOLIO - PREVENTIVO**
   Exemplos: 
-    * Omni Avante - Preventivo 
-    * Pan NPV - Preventivo
-    * NoVerde - Preventivo
+    .. * Omni Avante - Preventivo 
+    .. * Pan NPV - Preventivo
+    .. * NoVerde - Preventivo
 
   
