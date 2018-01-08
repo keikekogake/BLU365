@@ -29,7 +29,7 @@ Versão | Data | Comentário
 
   A automação dos disparos de e-mail de Preventivo foi criada para melhorar a comunicação com os clientes finais (devedores) e o principal objetivo é diminuir o  percentual de queba de acordo e o trabalho manual do squad de performance.
 
-## 4 Como funciona a automação
+## 4 Como funciona a automação do preventivo
 
 ### Iniciando a automação
   O inicio da automação é através de uma query que busca todos os acordos gerados (primeira parcela e acordos gerados) e disponibiliza as informações em um SFTP  onde a Dinamize/Mail2Easy Pro busca os arquivos em horários específicos.
