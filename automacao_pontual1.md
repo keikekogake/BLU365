@@ -16,6 +16,7 @@ Versão | Data | Comentário
   2. [Sumário](#2-sumário)
   3. [Visão geral](#3-visão-geral)
   4. [Como funciona a automação do fluxo pontual](#4-como-funciona-a-automação-do-fluxo-pontual)
+  5. [Alteração dos email a ser enviado](#5-alteração-do-email-a-ser-enviado)
 
 ## 3 Visão geral
 
@@ -77,6 +78,10 @@ Versão | Data | Comentário
   ![authorization](img-auto-pontual1/acao_gatilho.png)
 
 
+### Pontos de atenção
+    
+   1. Os e-mails que serão disparados devem ser alterados **ANTES** do horário da ação dos gatilhos;
+   2. Os horários das ações podem ser alterados, mas a segunda ação (atualização do contato) deve acontecer sempre depois do disparo do e-mail;
 
 
 
