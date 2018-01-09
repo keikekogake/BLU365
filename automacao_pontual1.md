@@ -53,28 +53,25 @@ Versão | Data | Comentário
 
 ### Segmentação de contatos
 
- As segmentações foram criadas para separar os contatos por **credor, portfolio e dias para vencimento do boleto**.
-  * **CREDOR - Preventivo D-5**: segmenta os contatos que estão com o **marcador** = Preventivo, **qtd_dias_vencimento** = -5 e **data_negociacao** <= ontem.
-  * **CREDOR - Preventivo D-3**: segmenta os contatos que estão com o **marcador** = Preventivo, **qtd_dias_vencimento** = -3 e **data_negociacao** <= ontem.
-  * **CREDOR - Preventivo D-1**: segmenta os contatos que estão com o **marcador** = Preventivo, **qtd_dias_vencimento** = -1 e **data_negociacao** <= ontem.
-  * **CREDOR - Preventivo D0**: segmenta os contatos que estão com o **marcador** = Preventivo, **data_prox_venc** = hoje e **data_negociacao** <= ontem.
+ As segmentações foram criadas para separar os contatos por **credor e portfolio**.
+  * **CREDOR PORTFOLIO - Pontual 1**: segmenta os contatos que estão com o **marcador** = pontual1.
 
 ### Automação dos disparos
 
-  1. As automações foram criadas separadas para cada **credor + portfólio** com o nome **CREDOR PORTFOLIO - PREVENTIVO**
+  1. As automações foram criadas separadas para cada **credor + portfólio** com o nome **CREDOR PORTFOLIO - Pontual 1**
   Exemplos: 
-    * Omni Avante - Preventivo 
-    * Pan NPV - Preventivo
-    * NoVerde - Preventivo
+    * Omni Avante - Pontual 1 
+    * Pan NPV - Pontual 1
+    * NoVerde - Pontual 1
 
   2. O gatilho que inicia a automação é o **Verificação diária**, todo dia, em um horário pre definido, o gatilho verifica se o contato atende os critérios configurados, conforme o print abaixo:
 
   ###### Exemplo de configuração do gatilho
-  ![authorization](img-auto-prev/conf_verif_diaria.png)
+  ![authorization](img-auto-pontual1/conf_verif_diaria.png)
 
   3. Após a configuração do gatilho, é configurada a ação que do gatilho dispara (envio de e-mail ou SMS), conforme print abaixo:
   
-  ![authorization](img-auto-prev/acao_gatilho.png)
+  ![authorization](img-auto-pontual1/acao_gatilho.png)
 
 
 
