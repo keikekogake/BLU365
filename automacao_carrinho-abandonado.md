@@ -15,7 +15,7 @@ Versão | Data | Comentário
   1. [Histórico do documento](#1-histórico-do-documento)
   2. [Sumário](#2-sumário)
   3. [Visão geral](#3-visão-geral)
-  4. [Como funciona a automação do Pontual 1](#4-como-funciona-a-automação-do-pontual-1)
+  4. [Como funciona a automação de Carrinho Abandonado](#4-como-funciona-a-automação-de-carrinho-abandonado)
 
 ## 3 Visão geral
 
@@ -29,10 +29,10 @@ Versão | Data | Comentário
 
   A automação dos disparos de e-mail Pontuais foi criada para melhorar a comunicação com os clientes finais (devedores) e o principal objetivo é diminuir o trabalho manual do squad de performance.
 
-## 4 Como funciona a automação do Carrinho abandonado
+## 4 Como funciona a automação de Carrinho Abandonado
 
 ### Iniciando a automação
-  O inicio da automação é através de uma query que busca todos os clientes que atendem os parâmetros definidos na condição "where" da query e disponibiliza as informações em um SFTP onde a Dinamize/Mail2Easy Pro busca os arquivos em horários específicos.
+  O inicio da automação é através de uma query que busca todos os clientes que busca todos os clientes que acessaram o site da BLU365 (fizeram login) e não geraram o acordo e disponibiliza as informações em um SFTP onde a Dinamize/Mail2Easy Pro busca os arquivos em horários específicos.
 
 ### Importando os arquivos
 
@@ -40,7 +40,7 @@ Versão | Data | Comentário
   Existe uma pasta no SFTP com os arquivos que serão importados:
 
  ###### Estrutura das pastas
- ![authorization](img-auto-pontual1/sftp_pontual1.png)
+ ![authorization](img-auto-carrinho/sftp_pontual1.png)
 
 ### Importações criadas
   1. Todas as importações de preventivo tem o padrão de nome (dinamize_pontual1_**hora-da-importacao**.csv);
@@ -49,32 +49,42 @@ Versão | Data | Comentário
  
 
  ###### Exemplo de importação do arquivo
- ![authorization](img-auto-prev/import-prev.png)
+ ![authorization](img-auto-carrinho/import-prev.png)
 
 ### Segmentação de contatos
 
- As segmentações foram criadas para separar os contatos por **credor, portfolio e dias para vencimento do boleto**.
-  * **CREDOR - Preventivo D-5**: segmenta os contatos que estão com o **marcador** = Preventivo, **qtd_dias_vencimento** = -5 e **data_negociacao** <= ontem.
-  * **CREDOR - Preventivo D-3**: segmenta os contatos que estão com o **marcador** = Preventivo, **qtd_dias_vencimento** = -3 e **data_negociacao** <= ontem.
-  * **CREDOR - Preventivo D-1**: segmenta os contatos que estão com o **marcador** = Preventivo, **qtd_dias_vencimento** = -1 e **data_negociacao** <= ontem.
-  * **CREDOR - Preventivo D0**: segmenta os contatos que estão com o **marcador** = Preventivo, **data_prox_venc** = hoje e **data_negociacao** <= ontem.
+ As segmentações foram criadas para separar os contatos por **credor, portfolio, dias da semana ((segunda a sexta) e (sabado))**.
+  * **CREDOR PORTFOLIO - Carrinho - Sabado**: segmenta os contatos que estão com o **marcador** = Carrinho Abandonado, **dia_da_semana** = 6.
+  * **CREDOR PORTFOLIO - Campanha Carrinho - Sabado**: segmenta os contatos que estão com o **marcador** = Carrinho Abandonado, **dia_da_semana** = 6 e **contatos que participaram de uma campanha específica** = "CREDOR PORTFOLIO - Carrinho Abandonado".
+  * **CREDOR PORTFOLIO - Não Abriu Email Carrinho - Sabado**: segmenta os contatos que estão com o **marcador** = Carrinho Abandonado, **dia_da_semana** = 6 e **contatos que não visualizaram uma campanha específica** = "CREDOR PORTFOLIO - Carrinho Abandonado".
+  * **CREDOR PORTFOLIO - Não Clicou Email Carrinho - Sabado**: segmenta os contatos que estão com o **marcador** = Carrinho Abandonado, **dia_da_semana** = 6 e **contatos que visualizaram uma campanha específica** = "CREDOR PORTFOLIO - Carrinho Abandonado" e **contatos que não clicaram em uma campanha específica** = "CREDOR PORTFOLIO - Carrinho Abandonado".
 
 ### Automação dos disparos
 
-  1. As automações foram criadas separadas para cada **credor + portfólio** com o nome **CREDOR PORTFOLIO - PREVENTIVO**
+  1. As automações foram criadas separadas para cada **credor + portfólio e dias da semana ((segunda a sexta) e (sabado))** com o nome **CREDOR PORTFOLIO - Carrinho - Segunda a Sexta**
   Exemplos: 
-    * Omni Avante - Preventivo 
-    * Pan NPV - Preventivo
-    * NoVerde - Preventivo
+    * Omni Avante - Carrinho - Sabado
+    * Pan NPV - Carrinho - Sabado
+    * Pan NPV - Carrinho - Segunda a Sexta
+    * NoVerde - Carrinho - Segunda a Sexta
 
-  2. O gatilho que inicia a automação é o **Verificação diária**, todo dia, em um horário pre definido, o gatilho verifica se o contato atende os critérios configurados, conforme o print abaixo:
+  2. Gatilhos configurados:
+  
+    1. **Atualização no contato**: aguarda a atualização de um campo para executar suas ações, para essa automação foram utilizados gatilhos aguardando a atualização do campo **qtd_dias_ultima_visita** = (1, 3, 5, 7, 11, 13, 15, 20, 25, 30).
+    2. **Comportamento do contato**: verifica as ações do contato em um e-mail, para essa automação foram utilizados dois deste gatilho, um para verificar se o contato clicou no e-mail e um para os contatos que não clicaram no e-mail.
 
-  ###### Exemplo de configuração do gatilho
-  ![authorization](img-auto-prev/conf_verif_diaria.png)
+  ###### Exemplo de configuração do gatilho **Atualização no contato**
+  ![authorization](img-auto-carrinho/conf_verif_diaria.png)
+
+  ###### Exemplo de configuração do gatilho **Comportamento do contato** - não clicaram
+  ![authorization](img-auto-carrinho/conf_comp_cont_nclicou.png)
+
+  ###### Exemplo de configuração do gatilho **Comportamento do contato** - clicaram
+  ![authorization](img-auto-carrinho/conf_comp_cont_clicou.png)
 
   3. Após a configuração do gatilho, é configurada a ação que do gatilho dispara (envio de e-mail ou SMS), conforme print abaixo:
   
-  ![authorization](img-auto-prev/acao_gatilho.png)
+  ![authorization](img-auto-carrinho/acao_gatilho.png)
 
 
 
