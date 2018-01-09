@@ -69,7 +69,10 @@ Versão | Data | Comentário
   ###### Exemplo de configuração do gatilho
   ![authorization](img-auto-pontual1/conf_verif_diaria.png)
 
-  3. Após a configuração do gatilho, é configurada a ação que do gatilho dispara (envio de e-mail ou SMS), conforme print abaixo:
+  3. Após a configuração do gatilho, é configurada a ação que o gatilho executa.
+     No print abaixo, foram configuradas duas ações para cada gatilho:
+     1. Disparo de e-mail;
+     2. Atualização do contato, para remover o marcador **pontual1**, essa ação é feita para que o disparo não seja feito várias vezes para o mesmo contato.
   
   ![authorization](img-auto-pontual1/acao_gatilho.png)
 
