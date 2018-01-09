@@ -80,8 +80,7 @@ Versão | Data | Comentário
 
 ### Pontos de atenção
     
-   1. Os e-mails que serão disparados devem ser alterados **ANTES** do horário da ação dos gatilhos;
-   2. Os horários das ações podem ser alterados, mas a segunda ação (atualização do contato) deve acontecer sempre depois do disparo do e-mail;
+    1. Os e-mails que serão disparados devem ser alterados **ANTES**
 
 
 
