@@ -43,13 +43,13 @@ Versão | Data | Comentário
  ![authorization](img-auto-pontual1/sftp_pontual1.png)
 
 ### Importações criadas
-  1. Todas as importações de preventivo tem o padrão de nome (dinamize_pontual1_**hora-da-importacao**.csv);
-  2. Os arquivos são gerados de hora em hora;
+  1. Todas as importações do fluxo pontual tem o padrão de nome (dinamize_pontual1_**hora-da-importacao**.csv);
+  2. Os arquivos são gerados sempre que o time de Performance rodar a query;
   3. Os arquivos são importados de hora em hora.
  
 
  ###### Exemplo de importação do arquivo
- ![authorization](img-auto-prev/import-prev.png)
+ ![authorization](img-auto-pontual1/import_pontual1.png)
 
 ### Segmentação de contatos
 
